@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧙‍♂️ Access Forbidden</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(76, 0, 255, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 100% 0%, rgba(255, 0, 221, 0.15) 0%, transparent 50%);
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .wizard-border {
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wizard-border::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(138, 43, 226, 0.1) 50%,
+                transparent 100%
+            );
+            animation: shimmer 4s infinite linear;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #bb86fc;
+        }
+
+        .wizard-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wizard-border">
+            <div class="wizard-icon">🧙‍♂️</div>
+            <h1>Magical Barrier Activated!</h1>
+            <div class="message">
+                <p>Hold thy steps, brave wanderer! The ancient magical wards have detected forbidden magic in your request.</p>
+                <p>Our wise wizard guardians (OpenRASP) have blocked this attempt to maintain the sanctity of our realm.</p>
+            </div>
+            <div class="message" style="font-size: 0.9rem; color: #bb86fc;">
+                ✨ Protected by the Ancient Runes of OpenRASP ✨
+            </div>
+        </div>
+    </div>
+</body>
+</html>
