@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
+import java.util.regex.Pattern;
 
 @Controller
 public class ChamberController {
@@ -17,18 +18,19 @@ public class ChamberController {
     }
 
     @PostMapping("/cast") 
-    public String castSpell(@RequestParam("spell") String spell, Model model) {
-        // WAF
-        if (spell.contains("ProcessBuilder") || 
-            spell.contains("getClass") ||
-            spell.contains("Runtime") ||
-            spell.contains("java") ||
-            spell.contains("file") ||
-            spell.contains("new") ||
-            spell.contains("T(") ||
-            spell.contains("#")) {
-                return "redirect:/block";
-        }
+ public String castSpell(@RequestParam("spell") String spell, Model model) {
+    // Define a regex pattern for valid spell names (e.g., alphanumeric and spaces only)
+    String validSpellPattern = "^[a-zA-Z0-9 ]+$";
+
+    // Validate against the pattern
+    if (!Pattern.matches(validSpellPattern, spell)) {
+        return "redirect:/block";
+    }
+
+    // Add spell to the model after validation
+    model.addAttribute("spell", spell);
+    return "castSpell";
+}
 
         try {
             SpelExpressionParser parser = new SpelExpressionParser();
