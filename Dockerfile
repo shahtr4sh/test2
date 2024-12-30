@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Run stage
-FROM openjdk:17-slim
+FROM openjdk:24-slim
 
 MAINTAINER h0j3n
 
